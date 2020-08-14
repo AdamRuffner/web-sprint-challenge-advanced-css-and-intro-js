@@ -239,11 +239,22 @@ function getArtistByIndex(artists, index) {
 
 /* Task 4: Create a function called get20s() that takes data as an argument and returns an array with names of artists who were born in and died in 20th century (1900-2000) example born in 1901 and died in 1959 - included / born in 1889 and died in 1925 not included - should return ["Salvador Dali", "Frida Kahlo"]*/
 
-function get20s(/* Code here */){
-
-  /* Code here */
-
+function get20s(arr){
+  newArr=[];
+  for(let i = 0; i <arr.length ; i++) {
+     if((arr[i]['years'].split(' ')[0] >= 1900) && (arr[i]['years'].split(' ')[2] < 2000)){
+       newArr.push(arr[i]['name']);
+     }
+  }
+   return newArr;  
 }
+
+console.log(get20s(artists));
+
+
+  
+
+
 
 
 /* Task 5: Create a function called `removeArtist` that takes two arguments:
@@ -256,12 +267,13 @@ function get20s(/* Code here */){
  * 
  * Note that sucessfully invoking this function multiple times without refreshing your browser will continuously remove artists from the array until there are none left. If you refresh your browser, the data will reset.  
 */
-function removeArtist(artists, index) {
-  removeArtist.splice([index]);
+function removeArtist(array, index) {
+  array.splice(index,1);
+  console.log(array.length)
     /* code here */
   }
-
-  console.log(artists.splice(0,1));
+  removeArtist(artists, 0);
+  
   
  
 
@@ -281,7 +293,7 @@ At the end, this function should return the new array with information added"*/
 function addArtist(array, id, names, years, genre, paintings){
   array.push({id, names, years, genre, paintings});
   return array;
-    /* Code here */
+    
 
   }
 
@@ -296,16 +308,21 @@ and returns an array with names of artists who painted more than 100 paintings.
 For example lotsOfArt(artists); will return ["Amedeo Modigliani", "Rene Magritte", ..."Albrecht Dürer"]*/
 
 function lotsOfArt(arr){ 
-  for(let i = 0; i < arr.length ; i++) {
-    if(arr[i].includes
+  newArr=[];
+  for(let i = 0; i <arr.length ; i++) {
+     if(arr[i].paintings > 100){
+      newArr.push(arr[i].name);
+    console.log(arr[i].paintings)
   }
-    
-  
-
-
+  }
+  return newArr;
 }
 
-console.log(lotsOfArt(reviews,'paintings'))
+console.log(lotsOfArt(artists));
+
+
+  
+  
 
 
 

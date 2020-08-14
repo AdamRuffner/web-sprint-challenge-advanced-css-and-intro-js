@@ -169,14 +169,16 @@ button:hover{
     a{
         font-size: 2rem;
     }
-    nav, a, #home{
-        font-weight: bolder;
-    }
+    
     .name{
         font-weight: normal;
     }
     .title-container hr{
         width: 100%;
+    }
+
+    nav :first-child{
+        font-weight: bolder;
     }
 }
 
